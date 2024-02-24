@@ -31,7 +31,7 @@ const port =process.env.PORT || 3000;
 
 app.listen(port,() => {
   console.log(`App is runnig at ${port}`);
-  console.log("MongoDB Connection String:", process.env.DATABASE);
+  //console.log("MongoDB Connection String:", process.env.DATABASE);
 })
 
 module.exports = app;
