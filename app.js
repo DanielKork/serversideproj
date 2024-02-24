@@ -7,12 +7,9 @@ const cookieParser = require("cookie-parser");
 const cors = require("cors");
 require("dotenv").config();
 
-// var indexRouter = require('./routes/index');
-
 const config ={
   autoIndex:true,
 }
-
 mongoose.connect(process.env.DATABASE,config)
     .then(() => {
       console.log("DB CONNECTED");
@@ -25,8 +22,9 @@ app.use(cookieParser());
 app.use(cors());
 
 var usersRouter = require('./routes/users');
+var indexRouter = require('./routes/index');
 
-//app.use('/', indexRouter);
+app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
 const port =process.env.PORT || 3000;
