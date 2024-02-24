@@ -1,10 +1,12 @@
 var express = require('express');
-const {signup} = require("../controllers/userController");
+const {signup, signin} = require("../controllers/userController");
 var router = express.Router();
 
 router.use(express.json());
 
-router.post('/signup',signup)
+router.post('/signup', signup)
+
+router.post('/signin', signin)
 
 /* GET users listing. */
 // router.get('/', function(req, res, next) {
