@@ -1,0 +1,95 @@
+//- doctype html
+//- html
+//-   head
+//-     title Simple Website - Login
+//-     link(rel='stylesheet', href='/styles/app.css') 
+
+//-   body
+//-     header
+//-       h1 Simple Website Login
+//-     nav
+//-       ul
+//-         li
+//-           a(href='/') Home
+//-         li
+//-           a(href='/services') Services
+//-         li
+//-           a(href='/about') About
+//-         li
+//-           a(href='/contact') Contact
+//-     main
+//-       .login-container
+//-         h2 Login
+//-         form(action='/signin', method='post' onsubmit='signin')
+//-           .form-group
+//-             label(for='username') Username:
+//-             input(type='text', id='username', name='username', required)
+//-           .form-group
+//-             label(for='password') Password:
+//-             input(type='password', id='password', name='password', required)
+//-           .form-group
+//-             input(type='submit', value='Login')
+//-     footer
+//-       p © 2024 Simple Website
+
+
+doctype html
+html
+  head
+    title Simple Website - Login
+    link(rel='stylesheet', href='../styles/app.css') 
+
+  body
+    header
+      h1 Simple Website Login
+    nav
+      ul
+        li
+          a(href='/') Home
+        li
+          a(href='/services') Services
+        li
+          a(href='/about') About
+        li
+          a(href='/contact') Contact
+    main
+      .login-container
+        h2 Login
+        form(id='loginForm', onsubmit='return signIn();')
+          .form-group
+            label(for='username') Username:
+            input(type='text', id='username', name='username', required)
+          .form-group
+            label(for='password') Password:
+            input(type='password', id='password', name='password', required)
+          .form-group
+            input(type='submit', value='Login')
+    footer
+      p © 2024 Simple Website
+
+  script.
+    async function signIn() {
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      try {
+        const response = await fetch('../users/signin', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ username }),
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          console.log('Success:', data);
+        } else {
+          console.error('Error:', response.statusText);
+        }
+      } catch (error) {
+        console.error('Error:', error.message);
+      }
+
+      return false; // Prevent form submission
+    }

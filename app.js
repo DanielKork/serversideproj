@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const express = require("express");
+const path = require('path');
 const app = express();
 
 const bodyParser = require("body-parser");
@@ -20,6 +21,8 @@ mongoose.connect(process.env.DATABASE,config)
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(cors());
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'pug');
 
 var usersRouter = require('./routes/users');
 var indexRouter = require('./routes/index');
