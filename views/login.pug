@@ -55,7 +55,7 @@ html
     main
       .login-container
         h2 Login
-        form(id='loginForm', onsubmit='return sinIn();')
+        form(id='loginForm', onsubmit='return singUp();')
           .form-group
             label(for='username') Username:
             input(type='text', id='username', name='username', required)
@@ -68,38 +68,56 @@ html
       p © 2024 Simple Website
 
   script.
-    //- async function signIn() {
+    const signUp = (e) => {
+      e.preventDefault();
+      const username = document.getElementById('username').value;
+      const lastname = document.getElementById('password').value;
+
+      const data = { username };
+      axios
+        .post("http://localhost:3000/users/signup", data)
+        .then((response) => {
+          alert({response.data});
+          //- if (response.data === "Success"){
+          //-   alert("good");
+          //- } else {
+          //-   alert("no");
+          //- }
+        })
+        .catch((error) => {
+          alert("Sign in failed, an error occurred");
+        });
+      };
+
+
+    //- async function signIn(event) {
+    //-   event.preventDefault(); // Prevent the default form submission behavior
+
     //-   const username = document.getElementById('username').value;
     //-   const password = document.getElementById('password').value;
 
-    //- axios.post("http://localhost:3000/users/signin",data)
-    //-   .then((response) => {
-    //-     if (response.data === "User was not found"){
-    //-       alert("Good job");
-    //-     }
-    //-   })
-    //-   .catch((error) => {
-    //-     alert("Sign in failed, an error occurred");
-    //-   });
+    //-   const signIn = (e) => {
+    //-   e.preventDefault();
+    //-   const username = document.getElementById('username').value;
+    //-   const lastname = document.getElementById('password').value;
 
-      const signIn = (e) => {
-        e.preventDefault();
-        const username = document.getElementById('username').value;
-
-        const data = { username: username };
-        axios
-          .post("http://localhost:3000/users/signin", data)
-          .then((response) => {
-            if (response.data){
-              alert("good");
-            } else {
-              alert("no");
-            }
-          })
-          .catch((error) => {
-            alert("Sign in failed, an error occurred");
-          });
-      };
+    //-   const data = { username: username, lastname: lastname};
+    //-   axios
+    //-     .post("http://localhost:3000/users/signup", data)
+    //-     .then((response) => {
+    //-       if (response.data === "Success"){
+    //-         alert("good");
+    //-       } else {
+    //-         alert("no");
+    //-       }
+    //-     })
+    //-     .catch((error) => {
+    //-       alert("Sign in failed, an error occurred");
+    //-     });
+    //-   };
+    //- }
+    
+    
 
       //- try {
       //-   const response = await fetch("http://localhost:3000/users/signin", {

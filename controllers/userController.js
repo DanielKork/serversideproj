@@ -18,7 +18,7 @@ exports.signup = async (req, res) => {
 };
 
 exports.signin = (req, res) => {
-    const { first_name, last_name } = req.body;
+    const { first_name } = req.body;
 
     // Using findOne without a callback, returns a Query object
     const query = User.findOne({ first_name });
