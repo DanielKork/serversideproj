@@ -37,7 +37,7 @@ doctype html
 html
   head
     title Simple Website - Login
-    link(rel='stylesheet', href='../styles/app.css') 
+    link(rel='stylesheet', href='./styles/app.css') 
 
   body
     header
@@ -55,7 +55,7 @@ html
     main
       .login-container
         h2 Login
-        form(id='loginForm', onsubmit='return signIn();')
+        form(id='loginForm', onsubmit='return sinIn();')
           .form-group
             label(for='username') Username:
             input(type='text', id='username', name='username', required)
@@ -68,28 +68,57 @@ html
       p © 2024 Simple Website
 
   script.
-    async function signIn() {
-      const username = document.getElementById('username').value;
-      const password = document.getElementById('password').value;
+    //- async function signIn() {
+    //-   const username = document.getElementById('username').value;
+    //-   const password = document.getElementById('password').value;
 
-      try {
-        const response = await fetch('../users/signin', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ username }),
-        });
+    //- axios.post("http://localhost:3000/users/signin",data)
+    //-   .then((response) => {
+    //-     if (response.data === "User was not found"){
+    //-       alert("Good job");
+    //-     }
+    //-   })
+    //-   .catch((error) => {
+    //-     alert("Sign in failed, an error occurred");
+    //-   });
 
-        if (response.ok) {
-          const data = await response.json();
-          console.log('Success:', data);
-        } else {
-          console.error('Error:', response.statusText);
-        }
-      } catch (error) {
-        console.error('Error:', error.message);
-      }
+      const signIn = (e) => {
+        e.preventDefault();
+        const username = document.getElementById('username').value;
 
-      return false; // Prevent form submission
-    }
+        const data = { username: username };
+        axios
+          .post("http://localhost:3000/users/signin", data)
+          .then((response) => {
+            if (response.data){
+              alert("good");
+            } else {
+              alert("no");
+            }
+          })
+          .catch((error) => {
+            alert("Sign in failed, an error occurred");
+          });
+      };
+
+      //- try {
+      //-   const response = await fetch("http://localhost:3000/users/signin", {
+      //-     method: 'POST',
+      //-     headers: {
+      //-       'Content-Type': 'application/json',
+      //-     },
+      //-     body: JSON.stringify({ username }),
+      //-   });
+
+      //-   if (response.ok) {
+      //-     const data = await response.json();
+      //-     console.log('Success:', data);
+      //-   } else {
+      //-     console.error('Error:', response.statusText);
+      //-   }
+      //- } catch (error) {
+      //-   console.error('Error:', error.message);
+      //- }
+
+      //- return false; // Prevent form submission
+    
