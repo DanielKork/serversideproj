@@ -77,7 +77,7 @@ html
             'Content-Type': 'application/json',
           },
           //- body: JSON.stringify({ first_name: username, last_name: password }),
-          body: JSON.stringify({ first_name: username }),
+          body: JSON.stringify({ first_name: username, password: password }),
         });
 
         if (response.ok) {

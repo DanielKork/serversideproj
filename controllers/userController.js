@@ -17,14 +17,11 @@ exports.signup = async (req, res) => {
     }
 };
 
-exports.signin = (req, res) => {
-    const { first_name } = req.body;
+exports.signin = async (req, res) => {
+    try {
+        const { first_name, password } = req.body;
+        const user = await User.findOne({ first_name, password });
 
-    // Using findOne without a callback, returns a Query object
-    const query = User.findOne({ first_name });
-
-    // Executing the query and handling the result using then
-    query.then((user) => {
         if (!user) {
             return res.status(400).json({
                 error: "User was not found"
@@ -37,20 +34,23 @@ exports.signin = (req, res) => {
 
         res.cookie('token', token, { expire: new Date() + 1 });
 
-        const { first_name, last_name } = user;
+        const { firstname, lastname, passwordU } = user;
         return res.json({
             token,
             user: {
-                first_name,
-                last_name
+                firstname,
+                lastname,
+                passwordU
             }
         });
-    }).catch((err) => {
+    } catch (err) {
+        console.error('Error in signin route:', err);
         return res.status(500).json({
             error: "Internal Server Error"
         });
-    });
+    }
 };
+
 
 exports.signout = (req,res) => {
     res.clearCookie('token')
