@@ -37,7 +37,7 @@ doctype html
 html
   head
     title Simple Website - Login
-    link(rel='stylesheet', href='./styles/app.css') 
+    link(rel='stylesheet', href='/styles/app.css') 
 
   body
     header
@@ -55,7 +55,7 @@ html
     main
       .login-container
         h2 Login
-        form(id='loginForm', onsubmit='return singUp();')
+        form(id='loginForm', action='../users/signin', method='post', onsubmit='return signIn(event);')
           .form-group
             label(for='username') Username:
             input(type='text', id='username', name='username', required)
@@ -68,75 +68,31 @@ html
       p © 2024 Simple Website
 
   script.
-    const signUp = (e) => {
-      e.preventDefault();
+    async function signIn(event) {
+      event.preventDefault(); // Prevent the default form submission behavior
+
       const username = document.getElementById('username').value;
-      const lastname = document.getElementById('password').value;
+      const password = document.getElementById('password').value;
 
-      const data = { username };
-      axios
-        .post("http://localhost:3000/users/signup", data)
-        .then((response) => {
-          alert({response.data});
-          //- if (response.data === "Success"){
-          //-   alert("good");
-          //- } else {
-          //-   alert("no");
-          //- }
-        })
-        .catch((error) => {
-          alert("Sign in failed, an error occurred");
+      try {
+        const response = await fetch('../users/signin', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          //- body: JSON.stringify({ first_name: username, last_name: password }),
+          body: JSON.stringify({ first_name: username }),
         });
-      };
 
+        if (response.ok) {
+          // Redirect or perform other actions upon successful login
+          console.log('Login Successful');
+        } else {
+          // Handle login failure
+          console.error('Login Failed:', response.statusText);
+        }
+      } catch (error) {
+        console.error('Error:', error.message);
+      }
+    }
 
-    //- async function signIn(event) {
-    //-   event.preventDefault(); // Prevent the default form submission behavior
-
-    //-   const username = document.getElementById('username').value;
-    //-   const password = document.getElementById('password').value;
-
-    //-   const signIn = (e) => {
-    //-   e.preventDefault();
-    //-   const username = document.getElementById('username').value;
-    //-   const lastname = document.getElementById('password').value;
-
-    //-   const data = { username: username, lastname: lastname};
-    //-   axios
-    //-     .post("http://localhost:3000/users/signup", data)
-    //-     .then((response) => {
-    //-       if (response.data === "Success"){
-    //-         alert("good");
-    //-       } else {
-    //-         alert("no");
-    //-       }
-    //-     })
-    //-     .catch((error) => {
-    //-       alert("Sign in failed, an error occurred");
-    //-     });
-    //-   };
-    //- }
-    
-    
-
-      //- try {
-      //-   const response = await fetch("http://localhost:3000/users/signin", {
-      //-     method: 'POST',
-      //-     headers: {
-      //-       'Content-Type': 'application/json',
-      //-     },
-      //-     body: JSON.stringify({ username }),
-      //-   });
-
-      //-   if (response.ok) {
-      //-     const data = await response.json();
-      //-     console.log('Success:', data);
-      //-   } else {
-      //-     console.error('Error:', response.statusText);
-      //-   }
-      //- } catch (error) {
-      //-   console.error('Error:', error.message);
-      //- }
-
-      //- return false; // Prevent form submission
-    
