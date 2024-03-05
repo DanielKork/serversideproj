@@ -18,8 +18,11 @@ html
         h2 Register
         form(id='registerForm', action='../users/signup', method='post', onsubmit='return register(event);')
           .form-group
-            label(for='username') Username:
-            input(type='text', id='username', name='username', required)
+            label(for='firstname') First Name:
+            input(type='text', id='firstname', name='firstname', required)
+          .form-group
+            label(for='lastname') Last Name:
+            input(type='text', id='lastname', name='lastname', required)
           .form-group
             label(for='password') Password:
             input(type='password', id='password', name='password', required)
@@ -35,7 +38,8 @@ html
     async function register(event) {
       event.preventDefault(); // Prevent the default form submission behavior
 
-      const username = document.getElementById('username').value;
+      const firstname = document.getElementById('firstname').value;
+      const lastname = document.getElementById('lastname').value;
       const password = document.getElementById('password').value;
       const confirmPassword = document.getElementById('confirmPassword').value;
 
@@ -50,7 +54,7 @@ html
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ first_name: username, last_name: password }),
+          body: JSON.stringify({ first_name: firstname, last_name: lastname, password: password }),
         });
 
         if (response.ok) {
