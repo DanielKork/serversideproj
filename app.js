@@ -26,9 +26,11 @@ app.set('view engine', 'pug');
 
 var usersRouter = require('./routes/users');
 var indexRouter = require('./routes/index');
+var registerRouter = require('./routes/register');
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/register',registerRouter);
 
 const port =process.env.PORT || 3000;
 

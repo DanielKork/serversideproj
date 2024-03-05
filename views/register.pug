@@ -1,0 +1,66 @@
+doctype html
+html
+  head
+    title Simple Website - Register
+    link(rel='stylesheet', href='/styles/app.css') 
+
+  body
+    header
+      h1 Simple Website Register
+    nav
+      ul
+        li
+          a(href='/') Log In
+        li
+          a(href='/register') Register
+    main
+      .register-container
+        h2 Register
+        form(id='registerForm', action='../users/signup', method='post', onsubmit='return register(event);')
+          .form-group
+            label(for='username') Username:
+            input(type='text', id='username', name='username', required)
+          .form-group
+            label(for='password') Password:
+            input(type='password', id='password', name='password', required)
+          .form-group
+            label(for='confirmPassword') Confirm Password:
+            input(type='password', id='confirmPassword', name='confirmPassword', required)
+          .form-group
+            input(type='submit', value='Register')
+    footer
+      p © 2024 Simple Website
+
+  script.
+    async function register(event) {
+      event.preventDefault(); // Prevent the default form submission behavior
+
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirmPassword').value;
+
+      if (password !== confirmPassword) {
+        console.error('Error: Passwords do not match');
+        return;
+      }
+
+      try {
+        const response = await fetch('../users/signup', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ first_name: username, last_name: password }),
+        });
+
+        if (response.ok) {
+          // Redirect or perform other actions upon successful registration
+          console.log('Registration Successful');
+        } else {
+          // Handle registration failure
+          console.error('Registration Failed:', response.statusText);
+        }
+      } catch (error) {
+        console.error('Error:', error.message);
+      }
+    }
