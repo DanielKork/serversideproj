@@ -24,13 +24,15 @@ app.use(cors());
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
-var usersRouter = require('./routes/users');
 var indexRouter = require('./routes/index');
+var usersRouter = require('./routes/users');
 var registerRouter = require('./routes/register');
+var caloriesRouter = require('./routes/addcaloriespage');
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/register',registerRouter);
+app.use('/addcaloriespage',caloriesRouter);
 
 const port =process.env.PORT || 3000;
 
