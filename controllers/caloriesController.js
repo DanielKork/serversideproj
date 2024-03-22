@@ -1,42 +1,26 @@
 const Prod = require('../models/caloriesModel')
-var jwt = require('jsonwebtoken')
-var expressJwt = require('express-jwt')
+
+
+exports.addcalories = async (req, res) => {
+    try {
+        const calories = new Prod(req.body);
+        const savedProd = await calories.save();
+        res.status(201).json({
+            message: 'Success',
+            savedProd
+        });
+    } catch (error) {
+        res.status(400).json({
+            error: 'Unable to add product'
+        });
+    }
+};
+
 //const MongoClient = require('mongodb').MongoClient;
 
 // const db = client.db(serversideproj);
 // const usersCollection = db.collection('users');
 // const caloriesCollection = db.collection('calories');
-
-exports.addcalories = async (req, res) => {
-    try {
-        const calories = new Prod(req.body);
-        const savedProd = await calories.save();
-        res.status(201).json({
-            message: 'Success',
-            savedProd
-        });
-    } catch (error) {
-        res.status(400).json({
-            error: 'Unable to add product'
-        });
-    }
-};
-
-exports.addcalories = async (req, res) => {
-    try {
-        const calories = new Prod(req.body);
-        const savedProd = await calories.save();
-        res.status(201).json({
-            message: 'Success',
-            savedProd
-        });
-    } catch (error) {
-        res.status(400).json({
-            error: 'Unable to add product'
-        });
-    }
-};
-
 
 
 

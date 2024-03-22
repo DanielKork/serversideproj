@@ -27,12 +27,17 @@ app.set('view engine', 'pug');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var registerRouter = require('./routes/register');
-var caloriesRouter = require('./routes/addcaloriespage');
+var caloriespageRouter = require('./routes/addcaloriespage');
+var caloriesRouter = require('./routes/addcalories');
+var reportRouter = require('./routes/report');
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/register',registerRouter);
-app.use('/addcaloriespage',caloriesRouter);
+app.use('/addcaloriespage',caloriespageRouter);
+app.use('/addcalories',caloriesRouter);
+app.use('/report',reportRouter);
+
 
 const port =process.env.PORT || 3000;
 
