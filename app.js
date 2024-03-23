@@ -30,6 +30,7 @@ var registerRouter = require('./routes/register');
 var caloriespageRouter = require('./routes/addcaloriespage');
 var caloriesRouter = require('./routes/addcalories');
 var reportRouter = require('./routes/report');
+var aboutRouter = require('./routes/about');
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
@@ -37,6 +38,7 @@ app.use('/register',registerRouter);
 app.use('/addcaloriespage',caloriespageRouter);
 app.use('/addcalories',caloriesRouter);
 app.use('/report',reportRouter);
+app.use('/about',aboutRouter);
 
 
 const port =process.env.PORT || 3000;
