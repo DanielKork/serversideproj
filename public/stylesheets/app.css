@@ -1,9 +1,11 @@
+/* Reset default browser styles */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
 }
 
+/* Header styling */
 header {
   background-color: #333;
   color: #fff;
@@ -11,12 +13,16 @@ header {
   padding: 1em;
 }
 
+/* Navigation styling */
+nav {
+  background-color: #333;
+}
+
 nav ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #333;
 }
 
 nav li {
@@ -36,15 +42,17 @@ nav li a:hover {
   color: black;
 }
 
+/* Main content styling */
 main {
   max-width: 600px;
   margin: 20px auto;
   padding: 20px;
   border: 1px solid #ddd;
   border-radius: 5px;
-  background-color: #f9f9f9; /* Added background color */
+  background-color: #f9f9f9;
 }
 
+/* Form styling */
 form {
   display: flex;
   flex-direction: column;
@@ -57,17 +65,17 @@ label {
 input {
   padding: 8px;
   margin-bottom: 12px;
-  border: 1px solid #ccc; /* Added border */
-  border-radius: 5px; /* Added border radius */
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
 input[type='submit'] {
   background-color: #4caf50;
   color: white;
   cursor: pointer;
-  border: none; /* Removed border */
+  border: none;
 }
 
 input[type='submit']:hover {
-  background-color: #45a049; /* Darker hover color */
+  background-color: #45a049;
 }

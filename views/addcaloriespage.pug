@@ -1,39 +1,77 @@
+//- doctype html
+//- html(lang="en")
+//-   head
+//-     meta(charset="UTF-8")
+//-     meta(name="viewport", content="width=device-width, initial-scale=1.0")
+//-     title Add Calories
+//-     link(rel="stylesheet", href="app.css")
+//-   body
+//-     h1 Add Calories
+//-     form(id="calories" ,action="../addcalories/", method="post" ,onsubmit='return addcalories(event);')
+//-       label(for="user_id") User ID:
+//-       input(type="text", id="user_id", name="user_id", required)
+//-       br
+//-       label(for="year") Year:
+//-       input(type="text", id="year", name="year", required)
+//-       br
+//-       label(for="month") Month:
+//-       input(type="text", id="month", name="month", required)
+//-       br
+//-       label(for="day") Day:
+//-       input(type="text", id="day", name="day", required)
+//-       br
+//-       label(for="description") Description:
+//-       input(type="text", id="description", name="description", required)
+//-       br
+//-       label(for="category") Category:
+//-       select(id="category", name="category", required)
+//-         option(value="breakfast") Breakfast
+//-         option(value="lunch") Lunch
+//-         option(value="dinner") Dinner
+//-         option(value="other") Other
+//-       br
+//-       label(for="amount") Amount:
+//-       input(type="text", id="amount", name="amount", required)
+//-       br
+//-       button(type="submit") Add
 doctype html
 html(lang="en")
   head
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     title Add Calories
-    link(rel="stylesheet", href="app.css")
+    link(rel="stylesheet", href="/stylesheets/app.css")
   body
-    h1 Add Calories
-    form(id="calories" ,action="../addcalories/", method="post" ,onsubmit='return addcalories(event);')
-      label(for="user_id") User ID:
-      input(type="text", id="user_id", name="user_id", required)
-      br
-      label(for="year") Year:
-      input(type="text", id="year", name="year", required)
-      br
-      label(for="month") Month:
-      input(type="text", id="month", name="month", required)
-      br
-      label(for="day") Day:
-      input(type="text", id="day", name="day", required)
-      br
-      label(for="description") Description:
-      input(type="text", id="description", name="description", required)
-      br
-      label(for="category") Category:
-      select(id="category", name="category", required)
-        option(value="breakfast") Breakfast
-        option(value="lunch") Lunch
-        option(value="dinner") Dinner
-        option(value="other") Other
-      br
-      label(for="amount") Amount:
-      input(type="text", id="amount", name="amount", required)
-      br
-      button(type="submit") Add
+    header
+      h1 Add Calories
+    main
+      form(id="calories", action="../addcalories/", method="post", onsubmit='return addcalories(event);')
+        label(for="user_id") User ID:
+        input(type="text", id="user_id", name="user_id", required)
+        br
+        label(for="year") Year:
+        input(type="text", id="year", name="year", required)
+        br
+        label(for="month") Month:
+        input(type="text", id="month", name="month", required)
+        br
+        label(for="day") Day:
+        input(type="text", id="day", name="day", required)
+        br
+        label(for="description") Description:
+        input(type="text", id="description", name="description", required)
+        br
+        label(for="category") Category:
+        select(id="category", name="category", required)
+          option(value="breakfast") Breakfast
+          option(value="lunch") Lunch
+          option(value="dinner") Dinner
+          option(value="other") Other
+        br
+        label(for="amount") Amount:
+        input(type="text", id="amount", name="amount", required)
+        br
+        button(type="submit") Add
 
   script.
     async function addcalories(event) {
