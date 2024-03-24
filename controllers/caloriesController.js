@@ -5,7 +5,7 @@ exports.addcalories = async (req, res) => {
     try {
         const calories = new Prod(req.body);
         const savedProd = await calories.save();
-        res.status(201).json({
+        res.status(200).json({
             message: 'Success',
             savedProd
         });
