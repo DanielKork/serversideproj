@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const express = require("express");
+const serverless = require("serverless-http");
 const path = require('path');
 const app = express();
 
@@ -8,10 +9,12 @@ const cookieParser = require("cookie-parser");
 const cors = require("cors");
 require("dotenv").config();
 
+module.exports.handler = serverless(app);//netlify
+
 const config ={
   autoIndex:true,
 }
-mongoose.connect(process.env.DATABASE,config)
+mongoose.connect(process.env.DATABASE,config)//mongoDB connection
     .then(() => {
       console.log("DB CONNECTED");
     }).catch(() => {
@@ -23,9 +26,7 @@ app.use(cookieParser());
 app.use(cors());
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
-
-
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));//css
 
 
 var indexRouter = require('./routes/index');

@@ -4,7 +4,8 @@
   "private": true,
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
+    "start": "./node_modules/.bin/netlify-lambda serve sec",
+    "build": "./node_modules/.bin/netlify-lambda build sec",
     "deploy": "netlify deploy --prod"
   },
   "dependencies": {
@@ -25,6 +26,12 @@
     "nodemon": "^3.1.0",
     "npm": "^10.4.0",
     "pug": "^2.0.0-beta11",
+    "serverless-http": "^3.2.0",
     "uuid": "^9.0.1"
   }
 }
+
+
+
+
+   
