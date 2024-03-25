@@ -1,3 +1,8 @@
+//Daniel Korkus 314629692
+//Tamir Razon 207421322
+
+
+
 exports.getAbout = (req, res) => {
     try {
         const developers = [
