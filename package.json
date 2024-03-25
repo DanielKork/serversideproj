@@ -4,7 +4,8 @@
   "private": true,
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "deploy": "netlify deploy --prod"
   },
   "dependencies": {
     "body-parser": "^1.20.2",
@@ -19,10 +20,11 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.2.0",
     "morgan": "~1.9.1",
+    "netlify-cli": "^3.19.6",
+    "netlify-lambda": "^2.0.16",
     "nodemon": "^3.1.0",
     "npm": "^10.4.0",
     "pug": "^2.0.0-beta11",
-    "uuid": "^9.0.1",
-    "netlify-cli": "^3.19.6"
+    "uuid": "^9.0.1"
   }
 }

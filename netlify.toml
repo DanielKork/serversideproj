@@ -1,6 +1,7 @@
 [build]
-  command = "npm run build"  # Command to build your project
-  publish = "build"          # Directory with the built files to deploy
+  command = "npm start"  # Command to start your Node.js application
+  functions = "functions" # Directory with Netlify Functions (if applicable)
+  publish = "public"     # Directory containing static files (e.g., CSS)
 
 [[redirects]]
   from = "/*"
