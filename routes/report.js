@@ -5,10 +5,14 @@
 
 var express = require('express');
 const { getReport } = require('../controllers/reportController');
+// Create a new router instance
 var router = express.Router();
 
+// Middleware to parse JSON request bodies
 router.use(express.json());
 
-router.get('/', getReport)
+// Define a route to handle GET requests to the root URL ('/')
+router.get('/', getReport);
 
+// Export the router to be used in the main application
 module.exports = router;

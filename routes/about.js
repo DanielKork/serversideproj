@@ -5,10 +5,14 @@
 
 var express = require('express');
 const { getAbout } = require('../controllers/aboutController');
+// Create a new router instance
 var router = express.Router();
 
+// Middleware to parse JSON request bodies
 router.use(express.json());
 
-router.get('/', getAbout)
+// Define a route to handle GET requests to the root URL ('/')
+router.get('/', getAbout);
 
+// Export the router to be used in the main application
 module.exports = router;

@@ -2,15 +2,18 @@
 //Tamir Razon 207421322
 
 
-
 var express = require('express');
 const { addcalories } = require('../controllers/caloriesController');
+// Create a new router instance
 var router = express.Router();
 
+// Middleware to parse JSON request bodies
 router.use(express.json());
 
-router.post('/', addcalories)
+// Define routes
+router.post('/', addcalories);
 
+// Export the router to be used in the main application
 module.exports = router;
 
 

@@ -2,7 +2,7 @@
 //Tamir Razon 207421322
 
 
-
+// Define the schema for the calories collection
 const mongoose = require("mongoose")
 
 const caloriesSchema = new mongoose.Schema({
@@ -50,4 +50,5 @@ const caloriesSchema = new mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model("calories", caloriesSchema)
+// Export the model based on the schema
+module.exports = mongoose.model("calories", caloriesSchema);
