@@ -7,25 +7,25 @@ const mongoose = require("mongoose")
 
 const caloriesSchema = new mongoose.Schema({
     user_id:{
-        type:String,
+        type:Number,
         required:true,
         maxLength:32,
         trim: true
     },
     year:{
-        type:String,
+        type:Number,
         required:true,
         maxLength:32,
         trim: true
     },
     month:{
-        type:String,
+        type:Number,
         required:true,
         maxLength:32,
         trim: true
     },
     day:{
-        type:String,
+        type:Number,
         required:true,
         maxLength:32,
         trim: true
@@ -43,7 +43,7 @@ const caloriesSchema = new mongoose.Schema({
         trim: true
     },
     amount:{
-        type:String,
+        type:Number,
         required:true,
         maxLength:32,
         trim: true

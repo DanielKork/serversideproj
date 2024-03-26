@@ -37,18 +37,12 @@ app.use(express.static(path.join(__dirname, 'public')));  //css
 
 
 // Import routers
-//ar indexRouter = require('./routes/index');
-//var caloriespageRouter = require('./routes/addcaloriespage');
-var caloriesRouter = require('./routes/addcalories');
-var reportRouter = require('./routes/report');
-var aboutRouter = require('./routes/about');
+const caloriesRouter = require('./routes/addcalories');
+const reportRouter = require('./routes/report');
+const aboutRouter = require('./routes/about');
 
 
 // Define routes
-//app.use('/', indexRouter);
-// app.use('/users', usersRouter);
-// app.use('/register',registerRouter);
-//app.use('/addcaloriespage',caloriespageRouter);
 app.use('/addcalories',caloriesRouter);
 app.use('/report',reportRouter);
 app.use('/about',aboutRouter);

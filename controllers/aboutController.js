@@ -7,7 +7,7 @@ exports.getAbout = (req, res) => {
         // Array containing information about developers
         const developers = [
             { firstname: "Daniel", lastname: "Korkus", id: 314629692, email: "daniel.korkus@icloud.com" },
-            { firstname: "Tamir", lastname: "Razon", id: 207421322, email: "tamir@gmail.com" }
+            { firstname: "Tamir", lastname: "Razon", id: 207421322, email: "tamir.razon@gmail.com" }
         ];
         
         // Sending the developers' information as JSON response

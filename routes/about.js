@@ -5,7 +5,7 @@
 const express = require('express');
 const { getAbout } = require('../controllers/aboutController');
 // Create a new router instance
-var router = express.Router();
+const router = express.Router();
 
 // Middleware to parse JSON request bodies
 router.use(express.json());

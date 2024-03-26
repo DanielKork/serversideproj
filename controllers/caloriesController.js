@@ -2,13 +2,13 @@
 //Tamir Razon 207421322
 
 
-const Prod = require('../models/caloriesModel')
+const prod = require('../models/caloriesModel')
 
 
 exports.addcalories = async (req, res) => {
     try {
         // Creating a new instance of the Prod model with request body data
-        const calories = new Prod(req.body);
+        const calories = new prod(req.body);
         // Saving the new calorie data to the database
         const savedProd = await calories.save();
         // Sending a success response with the saved product details
