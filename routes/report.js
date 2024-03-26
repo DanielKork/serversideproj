@@ -2,7 +2,7 @@
 //Tamir Razon 207421322
 
 
-var express = require('express');
+const express = require('express');
 const { getReport } = require('../controllers/reportController');
 // Create a new router instance
 var router = express.Router();
