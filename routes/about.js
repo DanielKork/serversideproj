@@ -2,7 +2,6 @@
 //Tamir Razon 207421322
 
 
-
 var express = require('express');
 const { getAbout } = require('../controllers/aboutController');
 // Create a new router instance

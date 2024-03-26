@@ -2,7 +2,6 @@
 //Tamir Razon 207421322
 
 
-
 exports.getAbout = (req, res) => {
     try {
         // Array containing information about developers

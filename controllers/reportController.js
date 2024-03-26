@@ -2,8 +2,6 @@
 //Tamir Razon 207421322
 
 
-
-
 const Prod = require('../models/caloriesModel')
 
 exports.getReport = async (req, res) => {
