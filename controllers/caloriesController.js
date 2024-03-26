@@ -24,35 +24,6 @@ exports.addcalories = async (req, res) => {
     }
 };
 
-//const MongoClient = require('mongodb').MongoClient;
-
-// const db = client.db(serversideproj);
-// const usersCollection = db.collection('users');
-// const caloriesCollection = db.collection('calories');
-
-
-
-    // const { user_id, year, month, day, description, category, amount } = req.body;
-    
-    // const newItem = {
-    //     user_id,
-    //     year,
-    //     month,
-    //     day,
-    //     description,
-    //     category,
-    //     amount
-    // };
-    
-    // caloriesCollection.insertOne(newItem)
-    //     .then(result => {
-    //         res.status(201).send('Calorie consumption item added successfully');
-    //     })
-    //     .catch(err => {
-    //         console.error('Error adding calorie consumption item:', err);
-    //         res.status(500).send('Internal Server Error');
-    //     });
-
 
 
     

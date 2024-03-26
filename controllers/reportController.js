@@ -41,20 +41,3 @@ exports.getReport = async (req, res) => {
         });
     }
 };
-
-
-
-// exports.getReport = async (req, res) => {
-//     try {
-//         const { userid, year,month } = req.body;
-//         const savedProd = await calories.find(userid,year,month);
-//         res.status(201).json({
-//             message: 'Success',
-//             savedProd
-//         });
-//     } catch (error) {
-//         res.status(400).json({
-//             error: 'Unable to add product'
-//         });
-//     }
-// };
