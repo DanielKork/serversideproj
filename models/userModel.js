@@ -1,3 +1,7 @@
+//Daniel Korkus 314629692
+//Tamir Razon 207421322
+
+
 const mongoose = require("mongoose")
 
 const userSchema = new mongoose.Schema({
@@ -27,5 +31,6 @@ const userSchema = new mongoose.Schema({
     }
 
 })
+
 
 module.exports = mongoose.model("users", userSchema)
