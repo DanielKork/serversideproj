@@ -16,24 +16,24 @@ require("dotenv").config();
 const app = express();
 
 // Configure MongoDB connection
-const config ={
-  autoIndex:true,
+const config = {
+  autoIndex: true,
 }
-mongoose.connect(process.env.DATABASE,config)  
-    .then(() => {
-      console.log("DB CONNECTED");
-    }).catch(() => {
-      console.log("UNABLE to connect to DB");
-    });
+mongoose.connect(process.env.DATABASE, config)
+  .then(() => {
+    console.log("DB CONNECTED");
+  }).catch(() => {
+    console.log("UNABLE to connect to DB");
+  });
 
 
 // Middleware setup    
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(cors());
-app.set('views', path.join(__dirname, 'views'));  //pug
+app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
-app.use(express.static(path.join(__dirname, 'public')));  //css
+app.use(express.static(path.join(__dirname, 'public')));
 
 
 // Import routers
@@ -43,18 +43,21 @@ const aboutRouter = require('./routes/about');
 
 
 // Define routes
-app.use('/addcalories',caloriesRouter);
-app.use('/report',reportRouter);
-app.use('/about',aboutRouter);
+app.use('/addcalories', caloriesRouter);
+app.use('/report', reportRouter);
+app.use('/about', aboutRouter);
+
+// Create users table
+const users = require('./models/userModel');
 
 
 // Define port
-const port =process.env.PORT || 3000;
+const port = process.env.PORT || 3000;
 
 
 // Start the server
-app.listen(port,() => {
-  console.log(`App is runnig at ${port}`);
+app.listen(port, () => {
+  console.log(`App is running at ${port}`);
 })
 
 

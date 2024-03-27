@@ -14,9 +14,10 @@ exports.getAbout = (req, res) => {
         res.json(developers);
     } catch (error) {
         // Handling errors and sending an appropriate error response
-        console.error('Error getting developers information:', error);
+        console.error('Error getting developers information:', error.message);
         res.status(500).json({
-            error: 'Internal Server Error'
+            error: 'Internal Server Error',
+            message: error.message
         });
     }
 };
