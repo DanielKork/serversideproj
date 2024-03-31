@@ -48,7 +48,7 @@ app.use('/report', reportRouter);
 app.use('/about', aboutRouter);
 
 // Create users table
-const users = require('./models/userModel');
+const users = require('./models/userModel'); // 12
 
 
 // Define port
