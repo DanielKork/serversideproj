@@ -19,7 +19,7 @@ const app = express();
 const config = {
   autoIndex: true,
 }
-mongoose.connect(process.env.DATABASE, config)
+mongoose.connect(process.env.DATABASE, config) //github test
   .then(() => {
     console.log("DB CONNECTED");
   }).catch(() => {
